@@ -23,8 +23,6 @@ for i in range(2, -1, -1):
 second_answer = answer
 answer = ''
 
-print(fist_answer, second_answer)
-
 if fist_answer < second_answer:
     print(second_answer)
 else:

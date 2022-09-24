@@ -3,6 +3,7 @@
 
 import sys
 
-eg = list(map(str, list(input())))
-print(eg.count(" "))
-    
+
+eg = ((input().strip()).replace("\n","").split())
+print(len(eg))
+
