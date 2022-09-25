@@ -11,13 +11,3 @@ a, b, v = map(int, sys.stdin.readline().split())
 
 # 아침에 올라가는 만큼 // 매일 올리가는 만큼
 print(math.ceil((v - b)/(a - b)) )
-
-print("================")
-
-
-k = (v - b) / (a - b)
-
-print(k)
-print('k : ' + str(int(k)))
-print(int(k) if k == int(k) else int(k)+1)
-
