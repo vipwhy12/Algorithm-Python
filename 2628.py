@@ -3,6 +3,8 @@
 
 import sys
 import this
+
+#sys.stdin = open("input.txt","r")
 #가로, 세로
 width, height = map(int, sys.stdin.readline().split())
 
@@ -12,31 +14,34 @@ cut_width = []
 #자를 세로값
 cut_height = []
 
-#입력 값을 각 가로값과 세로값에 저장하자
 for i in range(int(input())):
     cut = list(map(str, sys.stdin.readline().split()))
     if(int(cut[0]) == 0):
-        cut_width.append(cut[1])
+        cut_width.append(int(cut[1]))
     elif(int(cut[0]) == 1):
-        cut_height.append(cut[1])
-        
+        cut_height.append(int(cut[1]))
+
+#꼭지점의 시작점
+#cut_width.append(0)
+#cut_height.append(0)
+
+cut_width.append(height)
+cut_height.append(width)
+
 cut_width.sort()
 cut_height.sort()
 
-test = []
+max_width = 0 
+max_height = 0
 
+for i in range(1, len(cut_width)):
+    gap = cut_width[i] - cut_width[i - 1]
+    if max_width < gap:
+        max_width = gap
+        
+for i in range(1, len(cut_height)):
+    gap = cut_height[i] - cut_height[i - 1]
+    if max_height < gap:
+        max_height = gap
 
-for i in range(len(cut_width) - 1):
-    if i == 0:
-        width = width - int(cut_width[i])
-        test.append(width)
-    else :
-        width = width - (int(cut_width[i]) - int(cut_width[i -1]))
-        test.append(str(width))
-
-#test.append(width)
-# 가로세로 다 곱해서 가장 큰값 저장 후 출력하기
-#for i in range():
-#    for j in range():
-print("==================")
-print(test)
+print(max_width * max_height)
