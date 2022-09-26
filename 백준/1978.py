@@ -18,7 +18,6 @@ for i in range(N):
         for j in range(2, arr[i]):
             if arr[i] % j == 0:
                 error += 1
-        
         if error == 0: 
             sosu += 1
 
