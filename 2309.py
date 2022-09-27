@@ -1,7 +1,7 @@
 # 일곱 난장이
+from os import remove
 import sys
 sys.stdin = open("input.txt","r")
-
 snow_white = []
 
 for i in range(9):
@@ -9,23 +9,26 @@ for i in range(9):
 
 dobi = sum(snow_white) - 100
 
-dobi_one = 0
-dobi_two = 0
+one = 0
+two = 0
 
 for i in range(len(snow_white)):
     for j in range(len(snow_white)):
-        #
-        if snow_white[i] + snow_white[j] == dobi:
-            dobi_one = i
-            dobi_two = j
-            break
+        if i != j:
+            if snow_white[i] + snow_white[j] == dobi:
+                one = i
+                two = j
+                break
 
-if dobi_one < dobi_one:
-    snow_white.remove(snow_white[dobi_two])
-    snow_white.remove(snow_white[dobi_one])
-else :
-    snow_white.remove(snow_white[dobi_one])
-    snow_white.remove(snow_white[dobi_two])
-    
+
+if one > two: 
+    snow_white.remove(snow_white[one])
+    snow_white.remove(snow_white[two])
+else:
+    snow_white.remove(snow_white[two])
+    snow_white.remove(snow_white[one])                
+
 new_snow = sorted(snow_white)
-print(new_snow)
+
+for i in range(len(new_snow)):
+    print(new_snow[i])
