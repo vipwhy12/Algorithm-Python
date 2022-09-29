@@ -35,5 +35,10 @@ def solution(depth, time, c):
                 test[i][j] = False
 
 
+for i in range(N):
+    visited[i] = 1
+    solution(0,0,i,i)
+    visited[i] = 0
+    
 solution(0, 0, 0)
 print(total_time)

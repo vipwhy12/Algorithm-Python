@@ -1,9 +1,13 @@
-# 하노이의 탑
+import sys
+n = int(sys.stdin.readline())
 
+def hanoiTower(fisrt, second, third, count):
+    if count >= 1:
+        hanoiTower(fisrt, third, second, count - 1 )
+        print(fisrt, third)
+        hanoiTower(second, fisrt, third, count - 1 )
 
+print(2 ** n - 1)
 
-def move_disk(depth, start_peg, end_peg):
-    move_disk -1kd03
-    
-def hanoi(num_disk, start_peg, end_peg):
-    
+if n <= 20:
+    hanoiTower(1, 2, 3, n)
