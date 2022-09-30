@@ -1,20 +1,32 @@
-import sys 
+import sys
+sys.stdin = open("input.txt","r")
+house, router = map(int, sys.stdin.readline().split())
+location_arr = [int(sys.stdin.readline()) for _ in range(house)]
 
-N, M = map(int, input().split())
-tree = list(map(int, input()))
-start = 0
-end = max(tree)
+location_arr.sort()
+start = 1
+last = location_arr[-1] - location_arr[0]
 
-while start <= end:
-    center = (start + end) // 2
-    
-    depth = 0
-    
-    for i in tree:
-        if i >= center:
-            depth += (i - center)
+result = 0
+
+if router == 2:
+    print(location_arr[-1] - location_arr[0])
+else:
+    while(start < last):
+        mid = (start + last) // 2
         
-    if depth >= M:
-        start = center + 1
-    else:
-        end = center - 1
+        count = 1
+        ts = location_arr[0]
+        
+        for i in range(house):
+            if location_arr[i] - ts >= mid:
+                count += 1
+                ts = location_arr[i]        
+                    
+        if count >= router:
+            result = mid
+            start = mid + 1
+        elif count < router:
+            end = mid
+            
+    print(result)

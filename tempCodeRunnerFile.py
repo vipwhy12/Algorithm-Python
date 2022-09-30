@@ -1,1 +1,1 @@
-last = len(search_arr) - 1 
+len(location_arr) - 1
