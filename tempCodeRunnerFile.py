@@ -1,0 +1,1 @@
+last = len(search_arr) - 1 
