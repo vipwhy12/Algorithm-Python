@@ -20,8 +20,9 @@ else:
         # 마지막으로 설치된 공유기의 위치
         for i in range(n):
             if h[i] - ts >= mid:
-                count+=1
+                count += 1
                 ts = h[i]
+                
         if count >= c:
             result = mid
             start = mid + 1

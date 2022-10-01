@@ -1,1 +1,0 @@
-len(location_arr) - 1
