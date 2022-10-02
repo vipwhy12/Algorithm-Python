@@ -1,11 +1,28 @@
 # 괄호의 값
 
-#4개의 기호 ‘(’, ‘)’, ‘[’, ‘]’를 이용해서 만들어지는 괄호열 중에서 올바른 괄호열이란 다음과 같이 정의된다.
-
-#한 쌍의 괄호로만 이루어진 ‘()’와 ‘[]’는 올바른 괄호열이다. 
-#만일 X가 올바른 괄호열이면 ‘(X)’이나 ‘[X]’도 모두 올바른 괄호열이 된다. 
-#X와 Y 모두 올바른 괄호열이라면 이들을 결합한 XY도 올바른 괄호열이 된다.
-#예를 들어 ‘(()[[]])’나 ‘(())[][]’ 는 올바른 괄호열이지만 ‘([)]’ 나 ‘(()()[]’ 은 모두 올바른 괄호열이 아니다. 우리는 어떤 올바른 괄호열 X에 대하여 그 괄호열의 값(괄호값)을 아래와 같이 정의하고 값(X)로 표시한다. 
+# 1,‘()’ 인 괄호열의 값은 2이다.
+# 2. ‘[]’ 인 괄호열의 값은 3이다.
+# 3. ‘(X)’ 의 괄호값은 2×값(X) 으로 계산된다.
+# 4. ‘[X]’ 의 괄호값은 3×값(X) 으로 계산된다.
+# 올바른 괄호열 X와 Y가 결합된 XY의 괄호값은 값(XY)= 값(X)+값(Y) 로 계산된다.
 
 import sys
-parenthesis = sys.stdin.readline()
+parenthesis = list(sys.stdin.readline().strip())
+
+chek = [False * len(parenthesis)]
+
+stk = []
+
+count = 0
+for i in range(len(parenthesis)):
+    #괄호가 열리는 것은 항상 열어둡니다.
+    if parenthesis[i] == '(' or parenthesis[i] == '[':
+        stk.append(parenthesis[i])
+        
+    elif parenthesi[i]
+    elif parenthesis[i] == ')' and stk[-1] == '(':
+        count += 2
+        
+    elif parenthesis[i] == '[' and stk[-1] == ')' or parenthesis[i] == '[' and stk[-1] == '[':
+        count += 3
+        
