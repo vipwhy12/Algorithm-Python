@@ -7,22 +7,35 @@
 # 올바른 괄호열 X와 Y가 결합된 XY의 괄호값은 값(XY)= 값(X)+값(Y) 로 계산된다.
 
 import sys
+sys.stdin = open("input.txt","r")
 parenthesis = list(sys.stdin.readline().strip())
-
-chek = [False * len(parenthesis)]
-
 stk = []
-
 count = 0
+
+tmp = 0
+
 for i in range(len(parenthesis)):
     #괄호가 열리는 것은 항상 열어둡니다.
     if parenthesis[i] == '(' or parenthesis[i] == '[':
         stk.append(parenthesis[i])
         
-    elif parenthesi[i]
-    elif parenthesis[i] == ')' and stk[-1] == '(':
-        count += 2
+    elif parenthesis[i] == ')':
+        if stk.pop()== '(':
+            count = count + 2
+            tmp += 2
+        else :
+            print(0)
+            break        
         
-    elif parenthesis[i] == '[' and stk[-1] == ')' or parenthesis[i] == '[' and stk[-1] == '[':
-        count += 3
+        
+    elif parenthesis[i] == ']':
+        if stk.pop() == '[':
+            count = count + 3
+            tmp += 3
+        else :
+            print(0)
+            break
+    
+    if i == 0:
+        print(count)
         
