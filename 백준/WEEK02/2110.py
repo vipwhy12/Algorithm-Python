@@ -18,6 +18,7 @@ else:
         count = 1
         ts = h[0]
         # 마지막으로 설치된 공유기의 위치
+        
         for i in range(n):
             if h[i] - ts >= mid:
                 count+=1

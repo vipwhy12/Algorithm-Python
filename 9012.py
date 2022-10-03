@@ -1,30 +1,25 @@
-# 괄호
-# 괄호의 모양이 바르게 구성된 문자열을 올바른 괄호 문자열(Valid PS, VPS)
+import sys
 
-import sys 
-#sys.stdin = open("input.txt","r")
-count = int(sys.stdin.readline())
+N = int(sys.stdin.readline())
 
-for i in range(count):
+for i in range(N):
+    parenthesis = list(sys.stdin.readline().strip())
     
-    parentheses = list(str(sys.stdin.readline().strip()))
-
-    total = 0 
+    stk = []
+    count = 0
     
-    for j in parentheses:
-        if j == '(' :
-            total += 1
-            
-            
-        elif j == ')':
-            total -= 1
-            
-            
-        if total < 0:
-            print('NO')
-            break
-        
-    if total >  0:
-        print('NO')
-    elif total == 0:
+    for j in range(len(parenthesis)):
+        if parenthesis[j] == '(':
+            stk.append(parenthesis[j])
+
+        elif parenthesis[j] == ')':
+            if len(stk) != 0:
+                del stk[-1]
+            else :
+                stk.append(parenthesis[j])
+                break
+    
+    if len(stk) == 0:
         print('YES')
+    else :
+        print('NO')
