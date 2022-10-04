@@ -12,10 +12,10 @@ def binary_search(idx, target):
     
     while start <= end:
         mid = (start + end) // 2
-        if arr[mid] == target:
+        if solution_arr[mid] == target:
             return mid
         
-        elif arr[mid] > target:
+        elif solution_arr[mid] > target:
             end = mid - 1
             res = mid
         else:
