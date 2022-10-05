@@ -1,5 +1,6 @@
 #히오스 프로게이머
 #전체에 +K만 할 수 있고 최소 레벨이 최대가 되도록
+
 import sys
 input = sys.stdin.readline
 print = sys.stdout.write

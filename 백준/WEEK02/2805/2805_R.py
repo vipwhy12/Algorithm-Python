@@ -3,7 +3,6 @@ sys.stdin = open("백준/WEEK02/2805/input.txt","r")
 
 tree, M = map(int, sys.stdin.readline().split())
 tree_arr = list(map(int, sys.stdin.readline().split()))
-
 tree_arr.sort()
 
 start = 1

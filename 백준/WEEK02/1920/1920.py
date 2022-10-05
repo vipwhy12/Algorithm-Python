@@ -45,9 +45,3 @@ for i in arr:
             
             last = center - 1
         
-
-
-
-    
-    
-        
