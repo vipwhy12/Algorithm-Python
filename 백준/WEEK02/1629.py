@@ -24,3 +24,5 @@ def totalidad(A, B, C):
         return (A * (totalidad(A, B//2 , C) % C) ** 2) % C
 
 print(totalidad(A, B, C))
+
+print(pow(A, B, C))
