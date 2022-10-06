@@ -1,18 +1,27 @@
 # 가운데를 말해요
 import heapq
-import sys 
+import sys
+from turtle import right
+
 
 N = int(sys.stdin.readline())
-heap = []
-result = []
+right_heap = []
+left_heap =[]
 
-#백준이가 말한 수중에 중간값을 말해야한다. 
-#백준이가 외칠 수의 개수가 짝수개 . 중간에서 작은 수를 말한다. 
-for _ in range(N):
-    temp = int(sys.stdin.readline().strip())
-
-    heapq.heappush(heap, temp)
-    _
-    print("================")
-    print(heap)
-
+for i in range(N):
+    num = int(sys.stdin.readline())
+    
+    if len(left_heap) == len(right_heap):
+        heapq.heappush(left_heap, -num)
+        
+    else :
+        heapq.heappush(right_heap, num)
+        
+    if right_heap and right_heap[0] < -left_heap[0]:
+        left_value = heapq.heappop(left_heap)
+        right_value = heapq.heappop(right_heap)
+        
+        heapq.heappush(left_heap, - right_value)
+        heapq.heappush(right_heap, -left_value)
+        
+    print(-left_heap[0])

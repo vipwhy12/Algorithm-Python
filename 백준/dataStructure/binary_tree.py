@@ -30,3 +30,4 @@ print(test_node_1.data)
 
 test_node_2 = test_node_1.right_child
 print(test_node_2.data)
+
