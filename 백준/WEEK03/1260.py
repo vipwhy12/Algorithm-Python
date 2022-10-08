@@ -1,10 +1,9 @@
 
+from collections import deque
 import sys
 
 
 node, edge, start_node  = map(int, sys.stdin.readline().split())
-
-
 
 # 사용자가 입력할 리스트를 담을 arr
 arr = []
@@ -26,7 +25,6 @@ for i in range(len(arr)):
 
 
 def dfs(start_node):
-    
     if visited[start_node] == 0:
         result.append(start_node)
         visited[start_node] = 1
@@ -39,5 +37,19 @@ def dfs(start_node):
         elif visited == 1:
             continue
 
+
+def bfs(star_node):
+    
+    #a sh노드를 방문한다 
+    #초기 상태에 큐에서는 시작 노드만 저장 
+    
+    q = deque()
+    q.append(star_node)
+    
+    if start_node == 0:
+        q.append(arr)
+    for i in range():
+    
+    
 dfs(start_node)
 print(result)
