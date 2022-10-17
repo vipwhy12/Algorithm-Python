@@ -2,13 +2,8 @@ import sys
 input = sys.stdin.readline
 print = sys.stdout.write
 
-
-sys.stdin = open('백준/WEEK03/GraphSearchAlgorithm/1991/1991.txt', 'r')
 n = int(input())
-
 nodes = dict()
-
-
 for _ in range(n):
     temp = input().split()
     nodes[temp[0]] = [temp[1], temp[2]]

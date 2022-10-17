@@ -1,0 +1,1 @@
+list(map(int, list(sys.stdin.readline().strip())))
