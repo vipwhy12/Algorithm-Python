@@ -12,6 +12,7 @@ coin_list = [int(sys.stdin.readline().strip()) for _ in range(n)]
 def min_coin_count(value, coin_list):
     count = 0
     coin_list.reverse()
+    
 
     for coin in coin_list:
         if value >= coin:
