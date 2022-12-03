@@ -1,59 +1,50 @@
 # 스택 수열
 # Last in First out
+# 스택수열
 
 import sys
-n = int(sys.stdin.readline());
+
 
 n_arr = [];
 input_arr = [];
+result_arr = [];
+stack = [];
 
-#사용자가 입력하는 스택이름 : input_arr
+answer_arr =[];
+
+n = int(sys.stdin.readline());
+
+#사용자 입력 arr
 for _ in range(n):
   input_arr.append(int(sys.stdin.readline()));
 
-for i in range(1, n + 1):
+
+#오름차순 배열
+for i in range(1, n+1):
   n_arr.append(i);
 
-stack = [];
+
+tmep = 1;
+
 
 for i in range(n):
-  if i == 0:
-    for j in range(1, input_arr[0]):
-      stack.append(j);
-      print("+\n");
-      if j == input_arr[0]: 
-        stack.pop(j);
-        print("-\n");
-        break;  
-  else :
-    #내가 만약 3이야 
+  # 넣어주는거 false이면 멈추는데
+  while( len(stack) == 0 or input_arr[i] > stack[-1] ):
+    stack.append(tmep);
+    answer_arr.append("+");
+    #print("+");
+    tmep += 1;
     
-    #내가 arr안에 있으면 반복해서 빼주고 
-    if input_arr[i] in stack:
-      for _ in range(n):
-        print("-\n")
-        pop_value = stack.pop();
-        if pop_value == input_arr[cnt]:
-          break;
-    else:
-    #내가 arr안에 없으면 내가 있을 때 까지 넣어줘
-      for j in range(i, input_arr[i]):
-        stack.append(j);
-        print("+\n");
+  # 빼주는거 
+  while(len(stack) != 0 and input_arr[i] <= stack[-1] ): 
+    a = stack.pop();
+    result_arr.append(a);
+    answer_arr.append("-");
+    #print("-");
     
-  if tmp == stack[cnt]:
-    print("-\n")
-    stack.pop();
-    tmp = stack[-1];
-  
 
-
-
-# 4
-# 3
-# 6
-# 8
-# 7
-# 5
-# 2
-# 1
+if result_arr != input_arr:
+  print("NO")
+else :
+  for i in range(len(answer_arr)):
+    print(answer_arr[i]);
